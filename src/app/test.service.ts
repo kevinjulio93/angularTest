@@ -17,15 +17,15 @@ export class TestService {
 
   }
 
-  saveEstudiante(estudiante){
-    return this.http.post(this.url_api + 'estudiante',estudiante);
+  saveEstudiante(estudiante) {
+    return this.http.post(this.url_api + 'estudiante', estudiante);
   }
 
-  updateEstudiante(id){
-    return this.http.put(this.url_api + 'estudiante',id);
+  updateEstudiante(id, data) {
+    return this.http.put(this.url_api + 'estudiante/' + id, data);
   }
 
-  deleteEstudiante(id){
-    return this.http.delete(this.url_api + 'estudiante',id);
+  deleteEstudiante(id) {
+    return this.http.delete(this.url_api + 'estudiante/' + id);
   }
 }
