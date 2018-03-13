@@ -7,6 +7,8 @@ import {LoginComponent} from './login/login.component';
 import {DashComponent} from './dash/dash.component';
 import {AppRoutingModule} from './app-routes.module';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import {TestService} from './test.service';
 
@@ -21,6 +23,7 @@ import {TestService} from './test.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [TestService],
   bootstrap: [AppComponent]

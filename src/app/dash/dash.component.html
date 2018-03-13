@@ -1,25 +1,25 @@
 
-<form action="#" method="post">
+<form (ngSubmit)='save()' #estudianteForm="ngForm">
   <h2>Nuevo Usuario</h2>
 		<p>
 			<label for="nombre" class="floatLabel">Nombre</label>
-			<input id="nombre" name="nombre" type="text">
+			<input id="nombre" [(ngModel)]="estudiante.name" name="name">
 		</p>
 		<p>
 			<label for="aplli" class="floatLabel">Apellido</label>
-			<input id="aplli" name="aplli" type="text">
+			<input id="aplli" [(ngModel)]="estudiante.last_name" name="name">
 		</p>
 		<p>
 			<label for="email" class="floatLabel">Email</label>
-			<input id="email" name="email" type="text">
+			<input id="email" [(ngModel)]="estudiante.email	" name="email">
 		</p>
 		<p>
 			<label for="password" class="floatLabel">Password</label>
-			<input id="password" name="password" type="password">
+			<input id="password" [(ngModel)]="estudiante.password" type="password" name="password">
 
 		</p>
 		<p>
-			<input type="button" (click)="getEstudiantes()" value="Crear usuario" id="submit">
+			<input type="submit" value="Crear usuario" id="submit">
 		</p>
 	</form>
 
@@ -33,10 +33,11 @@
 		  </tr>
 		</thead>
 		<tbody>
-		  <tr>
-			<th scope="row">1</th>
-			<td></td>
-			<td></td>
-			<td></td>
+		  <tr *ngFor= "let estudiante of estudiantes">
+			<th scope="row">{{estudiante.id}}</th>
+			<td>{{estudiante.name}}</td>
+			<td>{{estudiante.last_name}}</td>
+			<td>{{estudiante.user.email}}</td>
+			<td><button  (click)='deleteEstudiante()'>edit</button></td>
 		  </tr>
 

@@ -1,6 +1,6 @@
 .table{
   float: right;
-  width: 940px;
+  width: 70.4%;
 
 }
 
@@ -10,9 +10,10 @@
     max-width: 400px;
     margin: 
     auto 0;
-    box-shadow: 0 0 1em #222;
+    box-shadow: 0 0 0em #222;
     border-radius: 2px;
     float: left;
+    position: fixed;
   }
   form h2 {
     margin: 0 0 50px 0;
