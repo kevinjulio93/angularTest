@@ -7,10 +7,11 @@ import {LoginComponent} from './login/login.component';
 import {DashComponent} from './dash/dash.component';
 import {AppRoutingModule} from './app-routes.module';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 
 
 import {TestService} from './test.service';
+import {LoginService} from './login.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {TestService} from './test.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [TestService],
+  providers: [TestService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

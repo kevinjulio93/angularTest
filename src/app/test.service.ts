@@ -26,6 +26,11 @@ export class TestService {
   }
 
   deleteEstudiante(id) {
+    console.log(id);
     return this.http.delete(this.url_api + 'estudiante/' + id);
+  }
+
+  getEstudianteById(id) {
+    return this.http.get(this.url_api + 'estudiante/' + id);
   }
 }

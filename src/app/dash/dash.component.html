@@ -1,43 +1,45 @@
-
 <form (ngSubmit)='save()' #estudianteForm="ngForm">
-  <h2>Nuevo Usuario</h2>
-		<p>
-			<label for="nombre" class="floatLabel">Nombre</label>
-			<input id="nombre" [(ngModel)]="estudiante.name" name="name">
-		</p>
-		<p>
-			<label for="aplli" class="floatLabel">Apellido</label>
-			<input id="aplli" [(ngModel)]="estudiante.last_name" name="name">
-		</p>
-		<p>
-			<label for="email" class="floatLabel">Email</label>
-			<input id="email" [(ngModel)]="estudiante.email	" name="email">
-		</p>
-		<p>
-			<label for="password" class="floatLabel">Password</label>
-			<input id="password" [(ngModel)]="estudiante.password" type="password" name="password">
+  <h2>{{'User'}}</h2>
+  <p>
+    <label for="nombre" class="floatLabel">Nombre</label>
+    <input id="nombre" [(ngModel)]="estudiante.name" name="name">
+  </p>
+  <p>
+    <label for="aplli" class="floatLabel">Apellido</label>
+    <input id="aplli" [(ngModel)]="estudiante.last_name" name="name">
+  </p>
+  <p>
+    <label for="email" class="floatLabel">Email</label>
+    <input id="email" [(ngModel)]="estudiante.email	" name="email">
+  </p>
+  <p>
+    <label for="password" class="floatLabel">Password</label>
+    <input id="password" [(ngModel)]="estudiante.password" type="password" name="password">
 
-		</p>
-		<p>
-			<input type="submit" value="Crear usuario" id="submit">
-		</p>
-	</form>
+  </p>
+  <p>
+    <input type="submit" value="Guardar" id="submit">
+  </p>
+</form>
 
-	<table class="table table-striped">
-		<thead>
-		  <tr>
-			<th>#</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Username</th>
-		  </tr>
-		</thead>
-		<tbody>
-		  <tr *ngFor= "let estudiante of estudiantes">
-			<th scope="row">{{estudiante.id}}</th>
-			<td>{{estudiante.name}}</td>
-			<td>{{estudiante.last_name}}</td>
-			<td>{{estudiante.user.email}}</td>
-			<td><button  (click)='deleteEstudiante(estdiante.id)'>Delete</button></td>
-		  </tr>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Username</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let estudiante of estudiantes">
+    <th scope="row">{{estudiante.id}}</th>
+    <td>{{estudiante.name}}</td>
+    <td>{{estudiante.last_name}}</td>
+    <td>{{estudiante.user.email}}</td>
+    <td>
+      <button (click)='deleteEstudiante(estudiante.id)'>Delete</button>
+      <button (click)='getEstudianteById(estudiante.id)'>Edit</button>
+    </td>
+  </tr>
 
