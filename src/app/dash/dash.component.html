@@ -18,6 +18,11 @@
 
   </p>
   <p>
+    <label for="image" class="floatLabel">Image</label>
+    <input id="image" (change)="handleFileInput($event.target.files)" type="file" >
+
+  </p>
+  <p>
     <input type="submit" value="Guardar" id="submit">
   </p>
 </form>
@@ -42,4 +47,3 @@
       <button (click)='getEstudianteById(estudiante.id)'>Edit</button>
     </td>
   </tr>
-

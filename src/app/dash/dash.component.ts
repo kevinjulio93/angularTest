@@ -16,6 +16,7 @@ export class DashComponent implements OnInit {
   private id;
   private is_updated;
   private is_saved;
+  fileToUpload: File = null;
 
   constructor(public ts: TestService, private login_comp: LoginComponent) {
     this.estudiante = {
@@ -35,6 +36,19 @@ export class DashComponent implements OnInit {
     this.is_saved = true;
   }
 
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  uploadFileToActivity() {
+    this.ts.postFile(this.fileToUpload).subscribe(data => {
+      // do something, if upload success
+    }, error => {
+      console.log(error);
+    });
+  }
+
+
   getEstudiantes() {
     this.ts.getEstudiantes()
       .subscribe(data => {
@@ -45,6 +59,7 @@ export class DashComponent implements OnInit {
 
   save() {
     if (this.is_saved) {
+      this.uploadFileToActivity();
       this.ts.saveEstudiante(this.estudiante)
         .subscribe(data => {
           alert('Sucessfully');

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class TestService {
@@ -32,5 +33,12 @@ export class TestService {
 
   getEstudianteById(id) {
     return this.http.get(this.url_api + 'estudiante/' + id);
+  }
+
+  postFile(fileToUpload: File): Observable<boolean> {
+
+    const formData: FormData = new FormData();
+    formData.append('image', fileToUpload, fileToUpload.name);
+    return this.http.post(this.url_api + 'pupload', formData);
   }
 }
